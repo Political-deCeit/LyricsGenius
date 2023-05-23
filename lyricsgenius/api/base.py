@@ -2,7 +2,8 @@ import time
 import os
 from json.decoder import JSONDecodeError
 
-import requests
+# import requests
+import cloudscraper
 from requests.exceptions import HTTPError, Timeout
 
 
@@ -22,7 +23,7 @@ class Sender(object):
         retries=0,
         public_api_constructor=False,
     ):
-        self._session = requests.Session()
+        self._session = cloudscraper.create_scraper()
         self._session.headers = {
             'application': 'LyricsGenius',
             'User-Agent': 'https://github.com/johnwmillr/LyricsGenius'

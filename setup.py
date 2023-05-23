@@ -17,55 +17,46 @@ mo = re.search(VSRE, ver_file, re.M)
 if mo:
     version = mo.group(1)
 else:
-    raise RuntimeError(
-        "Unable to find version string in {}".format(VERSIONFILE))
+    raise RuntimeError("Unable to find version string in {}".format(VERSIONFILE))
 
 this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 extras_require = {
-    'docs': [
-        'sphinx~=3.3',
-        'sphinx-rtd-theme',
+    "docs": [
+        "sphinx~=3.3",
+        "sphinx-rtd-theme",
     ],
-    'checks': [
-        'tox~=3.2',
-        'doc8',
-        'flake8',
-        'flake8-bugbear',
-        'pygments',
-    ]
+    "checks": [
+        "tox~=3.2",
+        "doc8",
+        "flake8",
+        "flake8-bugbear",
+        "pygments",
+    ],
 }
-extras_require['dev'] = (
-    extras_require['docs'] + extras_require['checks']
-)
+extras_require["dev"] = extras_require["docs"] + extras_require["checks"]
 
 setup(
-    name='lyricsgenius',
+    name="lyricsgenius",
     version=version,
-    description='Download lyrics and metadata from Genius.com',
+    description="Download lyrics and metadata from Genius.com",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     license="MIT",
-    author='John W. Miller',
-    author_email='john.w.millr+lg@gmail.com',
-    url='https://github.com/johnwmillr/lyricsgenius',
-    keywords='genius api genius-api music lyrics artists albums songs',
-    packages=find_packages(exclude=['tests']),
-    install_requires=[
-        'beautifulsoup4>=4.6.0',
-        'requests>=2.20.0'
-    ],
+    author="John W. Miller",
+    author_email="john.w.millr+lg@gmail.com",
+    url="https://github.com/Political-deCeit/LyricsGenius",
+    keywords="genius api genius-api music lyrics artists albums songs",
+    packages=find_packages(exclude=["tests"]),
+    install_requires=["beautifulsoup4>=4.6.0", "cloudscraper>=1.2.71"],
     extras_require=extras_require,
-    entry_points={
-        'console_scripts': [
-            'lyricsgenius = lyricsgenius.__main__:main']
-    },
+    entry_points={"console_scripts": ["lyricsgenius = lyricsgenius.__main__:main"]},
     classifiers=[
-        'Topic :: Software Development :: Libraries',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-    ]
+        "Topic :: Software Development :: Libraries",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+    ],
 )
