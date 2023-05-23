@@ -23,7 +23,7 @@ pip install lyricsgenius
 Or, install the latest version of the package from GitHub:
 
 ```bash
-pip install git+https://github.com/johnwmillr/LyricsGenius.git
+pip install git+https://github.com/Political-deCeit/LyricsGenius.git
 ```
 
 ## Usage
